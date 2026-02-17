@@ -91,7 +91,7 @@ Manually download the trip data CSV file from NYC TLC website and place it in `b
 ### 1. Install Dependencies
 
 ```bash
-cd Urban_Mobility_Data_Explorer
+cd Urban_Mobility_Data_Explorer_Summative/
 pip install flask flask-cors pandas geopandas pyarrow
 ```
 
@@ -130,7 +130,7 @@ python app.py
 
 Server runs on http://localhost:5000
 
-### 6. Open Frontend
+### 6. Open Frontend on different terminal
 
 ```bash
 cd frontend
