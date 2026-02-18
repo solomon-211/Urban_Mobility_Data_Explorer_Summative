@@ -20,6 +20,38 @@ create_tables()
 
 conn = get_connection()
 
+# Drop trips table to recreate with proper schema including id column
+conn.execute("DROP TABLE IF EXISTS trips")
+conn.commit()
+
+# Recreate trips table with id column
+conn.executescript("""
+    CREATE TABLE trips (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        pickup_datetime TEXT,
+        dropoff_datetime TEXT,
+        passenger_count INTEGER,
+        trip_distance REAL,
+        pu_location_id INTEGER,
+        do_location_id INTEGER,
+        fare_amount REAL,
+        tip_amount REAL,
+        total_amount REAL,
+        payment_type INTEGER,
+        trip_duration_minutes REAL,
+        speed_mph REAL,
+        fare_per_mile REAL,
+        pickup_hour INTEGER,
+        time_of_day TEXT,
+        is_weekend INTEGER
+    );
+    CREATE INDEX IF NOT EXISTS idx_pickup_datetime ON trips(pickup_datetime);
+    CREATE INDEX IF NOT EXISTS idx_pu_location ON trips(pu_location_id);
+    CREATE INDEX IF NOT EXISTS idx_do_location ON trips(do_location_id);
+    CREATE INDEX IF NOT EXISTS idx_time_of_day ON trips(time_of_day);
+""")
+conn.commit()
+
 data_dir = os.path.join(project_root, "backend", "data")
 
 # Load the zone lookup data - this is our dimension table
