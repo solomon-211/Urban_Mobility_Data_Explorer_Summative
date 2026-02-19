@@ -13,18 +13,15 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(script_dir))
 sys.path.append(project_root)
 
-from backend.database import get_connection, create_tables
-
-# First create the tables if they don't exist
-create_tables()
+from backend.database import get_connection
 
 conn = get_connection()
 
-# Drop trips table to recreate with proper schema including id column
+# Drop and recreate trips table with proper schema including id column
 conn.execute("DROP TABLE IF EXISTS trips")
 conn.commit()
 
-# Recreate trips table with id column
+# Recreate trips table with id column and indexes
 conn.executescript("""
     CREATE TABLE trips (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
