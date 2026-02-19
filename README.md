@@ -2,9 +2,9 @@
 
 A full-stack web application analyzing NYC taxi trip patterns using real-world data from the NYC Taxi & Limousine Commission. This project demonstrates data engineering, algorithm design, database management, API development, and frontend visualization skills. It includes a custom data cleaning pipeline, a min-heap algorithm for top-K zone selection, and an interactive dashboard with spatial visualizations.
 
-**Video Walkthrough:** [https://youtu.be/V8WMKv5jU2s]
+**Video Walkthrough:** https://youtu.be/V8WMKv5jU2s
 
-**Team Spreadsheet:** [https://docs.google.com/spreadsheets/d/1tortCJ5CIqPahP57oWkSpFx2DnX8XL5vbpFYs3YAsMU/edit?usp=sharing]
+**Team Spreadsheet:** https://docs.google.com/spreadsheets/d/1tortCJ5CIqPahP57oWkSpFx2DnX8XL5vbpFYs3YAsMU/edit?usp=sharing
 
 
 
